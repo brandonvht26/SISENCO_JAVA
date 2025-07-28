@@ -14,8 +14,15 @@
             <preferred-size width="200" height="200"/>
           </grid>
         </constraints>
-        <properties/>
-        <border type="none"/>
+        <properties>
+          <background color="-1315861"/>
+          <font name="SansSerif" size="16" style="0"/>
+          <foreground color="-15061908"/>
+        </properties>
+        <border type="etched">
+          <font/>
+          <title-color color="-15061908"/>
+        </border>
         <children/>
       </tabbedpane>
     </children>

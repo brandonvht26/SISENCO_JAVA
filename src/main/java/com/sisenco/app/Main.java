@@ -1,5 +1,6 @@
 package com.sisenco.app;
 
+import com.formdev.flatlaf.FlatLightLaf; //  <-- 1. IMPORTA LA LIBRERÍA
 import com.sisenco.model.Usuario;
 import com.sisenco.ui.FormLogin;
 import com.sisenco.ui.FormPrincipal;
@@ -8,6 +9,15 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+
+        // 2. CONFIGURA EL LOOK AND FEEL ANTES DE TODO
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException e) {
+            System.err.println("Failed to initialize LaF");
+            // Manejar el error, aunque es poco común que falle.
+        }
+
         SwingUtilities.invokeLater(() -> {
             // 1. Crear y mostrar el diálogo de login.
             //    Pasamos 'null' como padre para que sea modal a toda la aplicación.

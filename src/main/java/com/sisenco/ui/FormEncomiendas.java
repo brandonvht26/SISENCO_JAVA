@@ -1,5 +1,6 @@
 package com.sisenco.ui;
 
+import com.formdev.flatlaf.FlatClientProperties;
 import com.sisenco.dao.ClienteDAO;
 import com.sisenco.dao.EmpleadoDAO;
 import com.sisenco.dao.EncomiendaDAO;
@@ -54,6 +55,12 @@ public class FormEncomiendas extends JPanel {
         // Listener para el nuevo botón
         btnActualizarEstado.addActionListener(e -> mostrarDialogoActualizarEstado());
         btnVerHistorial.addActionListener(e -> verHistorial());
+
+        txtDestinatarioNombre.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nombre");
+        txtDestinatarioDireccion.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Dirección");
+        txtDestinatarioTelefono.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Teléfono");
+        txtPeso.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Peso");
+        txtAreaDescripcion.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Descripción");
     }
 
     private void mostrarDialogoActualizarEstado() {
@@ -100,7 +107,7 @@ public class FormEncomiendas extends JPanel {
     }
 
     // --- El resto de los métodos (cargarClientes, registrarEncomienda, etc.) se mantienen igual ---
-    private void cargarClientesEnComboBox() {
+    public void cargarClientesEnComboBox() {
         List<Cliente> clientes = clienteDAO.listarTodos();
         DefaultComboBoxModel<Cliente> model = new DefaultComboBoxModel<>();
         for (Cliente cliente : clientes) {

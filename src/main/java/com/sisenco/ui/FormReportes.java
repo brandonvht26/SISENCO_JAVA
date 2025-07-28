@@ -1,5 +1,6 @@
 package com.sisenco.ui;
 
+import com.formdev.flatlaf.FlatClientProperties;
 import com.sisenco.dao.EncomiendaDAO;
 import com.sisenco.dao.EstadoDAO;
 import com.sisenco.model.Encomienda;
@@ -31,6 +32,9 @@ public class FormReportes extends JPanel {
 
         btnGenerarReporte.addActionListener(e -> generarReporte());
         btnExportar.addActionListener(e -> exportarReporte());
+
+        txtFechaInicio.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Fecha inicio (YYYY-MM-DD)");
+        txtFechaFin.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Fecha fin (YYYY-MM-DD)");
     }
 
     private void cargarEstados() {

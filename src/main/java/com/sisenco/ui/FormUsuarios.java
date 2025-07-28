@@ -1,5 +1,6 @@
 package com.sisenco.ui;
 
+import com.formdev.flatlaf.FlatClientProperties;
 import com.sisenco.dao.BodegaDAO;
 import com.sisenco.dao.EmpleadoDAO;
 import com.sisenco.dao.RolDAO;
@@ -46,6 +47,15 @@ public class FormUsuarios extends JPanel {
 
         // Asigna el evento al botón de crear
         btnCrear.addActionListener(e -> crearUsuario());
+
+        txtUsuario.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nombre de usuario");
+        passClave.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña");
+        txtCedula.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Cédula");
+        txtNombres.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nombres");
+        txtApellidos.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Apellidos");
+        txtTelefono.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Teléfono");
+        txtCorreo.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Correo");
+        txtDireccion.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Dirección");
     }
 
     /**

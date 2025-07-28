@@ -1,5 +1,6 @@
 package com.sisenco.ui;
 
+import com.formdev.flatlaf.FlatClientProperties;
 import com.sisenco.dao.ClienteDAO;
 import com.sisenco.model.Cliente;
 
@@ -37,6 +38,15 @@ public class FormClientes extends JPanel { // Asegúrate que diga extends JPanel
         btnGuardar.addActionListener(e -> guardarCliente());
         btnBuscar.addActionListener(e -> buscarCliente());
         btnEliminar.addActionListener(e -> eliminarCliente());
+
+        // 2. AÑADE LOS PLACEHOLDERS AQUÍ
+
+        txtId.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ID");
+        txtCedula.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Cédula");
+        txtNombres.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nombres");
+        txtApellidos.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Apellidos");
+        txtTelefono.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Teléfono");
+        txtDireccion.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Dirección");
 
         tablaClientes.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting() && tablaClientes.getSelectedRow() != -1) {

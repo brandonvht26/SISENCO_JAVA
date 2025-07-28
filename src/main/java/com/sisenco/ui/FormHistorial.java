@@ -16,7 +16,7 @@ public class FormHistorial extends JDialog {
     public FormHistorial(Frame parent, int encomiendaId) {
         super(parent, "Historial de Encomienda", true);
         setContentPane(panelHistorial);
-        setSize(600, 400);
+        setSize(900, 400);
         setLocationRelativeTo(parent);
 
         lblTitulo.setText("Trazabilidad de la Encomienda ID: " + encomiendaId);

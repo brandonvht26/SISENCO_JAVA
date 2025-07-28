@@ -1,5 +1,6 @@
 package com.sisenco.ui;
 
+import com.formdev.flatlaf.FlatClientProperties;
 import com.sisenco.dao.UsuarioDAO;
 import com.sisenco.model.Usuario;
 
@@ -18,15 +19,18 @@ public class FormLogin extends JDialog {
 
     // CAMBIO 2: El constructor ahora recibe el 'padre' (la ventana principal)
     public FormLogin(Frame parent) {
-        super(parent, "SISENCO - Inicio de Sesión", true); // true = es modal
+        super(parent, "Inicio de Sesión", true);
 
         setContentPane(panelLogin);
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE); // Cierra solo el diálogo
-        setSize(400, 250);
-        setLocationRelativeTo(parent); // Se centra sobre el padre
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        setSize(1000, 585);
+        setLocationRelativeTo(parent);
+
+        // 2. AÑADE LOS PLACEHOLDERS AQUÍ
+        txtUsuario.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Usuario");
+        txtClave.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña");
 
         usuarioDAO = new UsuarioDAO();
-
         btnIngresar.addActionListener(e -> realizarLogin());
     }
 
