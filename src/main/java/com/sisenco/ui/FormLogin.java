@@ -13,6 +13,8 @@ public class FormLogin extends JDialog {
     private JTextField txtUsuario;
     private JPasswordField txtClave;
     private JButton btnIngresar;
+    private JLabel labelLogo;
+    private JLabel labelPortada;
 
     private UsuarioDAO usuarioDAO;
     private Usuario usuarioValidado; // Para guardar el usuario que se logueó
@@ -25,6 +27,7 @@ public class FormLogin extends JDialog {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setSize(1000, 585);
         setLocationRelativeTo(parent);
+        cargarImagenes();
 
         // 2. AÑADE LOS PLACEHOLDERS AQUÍ
         txtUsuario.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Usuario");
@@ -56,5 +59,26 @@ public class FormLogin extends JDialog {
     // CAMBIO 3: Un método público para que el exterior sepa si el login fue exitoso
     public Usuario getUsuarioValidado() {
         return this.usuarioValidado;
+    }
+
+    private void cargarImagenes() {
+        // Busca la imagen del logo dentro del JAR (o classpath)
+        java.net.URL logoUrl = getClass().getResource("/images/logo_SISENCO_sinFondo.png");
+        if (logoUrl != null) {
+            // Si la encuentra, la asigna al JLabel correspondiente.
+            // Necesitarás vincular 'labelLogo' a la JLabel en el diseñador de UI.
+            labelLogo.setIcon(new ImageIcon(logoUrl));
+        } else {
+            System.err.println("No se pudo encontrar el recurso: /images/logo_SISENCO_sinFondo.png");
+        }
+
+        // Lo mismo para la imagen de portada
+        java.net.URL portadaUrl = getClass().getResource("/images/portada_login.jpg");
+        if (portadaUrl != null) {
+            // Necesitarás vincular 'labelPortada' a la JLabel en el diseñador de UI.
+            labelPortada.setIcon(new ImageIcon(portadaUrl));
+        } else {
+            System.err.println("No se pudo encontrar el recurso: /images/portada_login.jpg");
+        }
     }
 }
